@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmeelarp <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/10 14:03:10 by tmeelarp          #+#    #+#             */
-/*   Updated: 2022/05/12 15:13:19 by tmeelarp         ###   ########.fr       */
+/*   Created: 2022/05/12 21:33:45 by tmeelarp          #+#    #+#             */
+/*   Updated: 2022/05/18 12:08:33 by tmeelarp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+//#include <stdio.h>
 
-void	ft_putnbr(int nb)
+int	ft_iterative_factorial(int nb)
 {
-	int		digits;
-	long	ladygaga;
+	int	result;
 
-	ladygaga = (long)nb;
-	if (ladygaga < 0)
+	result = 1;
+	if (nb < 0)
+		return (0);
+	while (nb >= 1)
 	{
-		write(1, "-", 1);
-		ladygaga *= -1;
+		result = result * nb;
+		nb--;
 	}
-	digits = (ladygaga % 10) + 48;
-	if (ladygaga > 9)
-		ft_putnbr(ladygaga / 10);
-	write(1, &digits, 1);
+	return (result);
 }
+
+/*int	main(void)
+{
+	printf("Result :%d\n", ft_iterative_factorial(-1));
+}*/

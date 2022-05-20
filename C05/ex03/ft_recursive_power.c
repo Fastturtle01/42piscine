@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_recursive_power.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmeelarp <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/10 14:03:10 by tmeelarp          #+#    #+#             */
-/*   Updated: 2022/05/12 15:13:19 by tmeelarp         ###   ########.fr       */
+/*   Created: 2022/05/13 09:43:53 by tmeelarp          #+#    #+#             */
+/*   Updated: 2022/05/17 13:24:39 by tmeelarp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+//#include <stdio.h>
 
-void	ft_putnbr(int nb)
+int	ft_recursive_power(int nb, int power)
 {
-	int		digits;
-	long	ladygaga;
-
-	ladygaga = (long)nb;
-	if (ladygaga < 0)
-	{
-		write(1, "-", 1);
-		ladygaga *= -1;
-	}
-	digits = (ladygaga % 10) + 48;
-	if (ladygaga > 9)
-		ft_putnbr(ladygaga / 10);
-	write(1, &digits, 1);
+	if (power >= 1)
+		return (nb * ft_recursive_power(nb, power - 1));
+	else if (power == 0)
+		return (1);
+	else
+		return (0);
 }
+
+/*int	main(void)
+{
+	printf("Power = %d\n", ft_recursive_power(46339, 46339));
+}*/

@@ -1,30 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmeelarp <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/10 14:03:10 by tmeelarp          #+#    #+#             */
-/*   Updated: 2022/05/12 15:13:19 by tmeelarp         ###   ########.fr       */
+/*   Created: 2022/05/13 21:24:29 by tmeelarp          #+#    #+#             */
+/*   Updated: 2022/05/17 15:48:09 by tmeelarp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+//#include <stdio.h>
 
-void	ft_putnbr(int nb)
+int	ft_sqrt(int nb)
 {
-	int		digits;
-	long	ladygaga;
+	int	i;
 
-	ladygaga = (long)nb;
-	if (ladygaga < 0)
+	i = 1;
+	if (nb == 1)
+		return (1);
+	while (nb > i && i * i < nb && i <= 46340)
 	{
-		write(1, "-", 1);
-		ladygaga *= -1;
+		i++;
+		if (i * i == nb)
+			return (i);
 	}
-	digits = (ladygaga % 10) + 48;
-	if (ladygaga > 9)
-		ft_putnbr(ladygaga / 10);
-	write(1, &digits, 1);
+	return (0);
 }
+
+/*int	main(void)
+{
+	printf("result = %d\n", ft_sqrt(390625));
+	printf("result = %d\n", ft_sqrt(2147395600));
+	printf("result = %d\n", ft_sqrt(443556));
+	printf("result = %d\n", ft_sqrt(-1));
+}*/

@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_recursive_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmeelarp <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/10 14:03:10 by tmeelarp          #+#    #+#             */
-/*   Updated: 2022/05/12 15:13:19 by tmeelarp         ###   ########.fr       */
+/*   Created: 2022/05/12 21:43:42 by tmeelarp          #+#    #+#             */
+/*   Updated: 2022/05/18 16:48:47 by tmeelarp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+//#include <stdio.h>
 
-void	ft_putnbr(int nb)
+int	ft_recursive_factorial(int nb)
 {
-	int		digits;
-	long	ladygaga;
-
-	ladygaga = (long)nb;
-	if (ladygaga < 0)
-	{
-		write(1, "-", 1);
-		ladygaga *= -1;
-	}
-	digits = (ladygaga % 10) + 48;
-	if (ladygaga > 9)
-		ft_putnbr(ladygaga / 10);
-	write(1, &digits, 1);
+	if (nb >= 1)
+		return (nb * ft_recursive_factorial(nb - 1));
+	else if (nb < 0)
+		return (0);
+	else
+		return (1);
 }
+
+/*int	main(void)
+{
+	printf("Result : %d\n", ft_recursive_factorial(-1));
+}*/
